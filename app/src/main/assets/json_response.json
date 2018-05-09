@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "userName": "bmoreira",
+      "userImage": "https://i.pinimg.com/originals/de/fd/1f/defd1fb7b4d962ad25f808987c815d14.jpg"
+    },
+    {
+      "userName": "smoss",
+      "userImage": "http://keyassets-p2.timeincuk.net/wp/prod/wp-content/uploads/sites/38/2015/09/visitstockholm-insta.png"
+    },
+    {
+      "userName": "pfroes",
+      "userImage": "https://lauragrai.files.wordpress.com/2014/05/stockholm-gamla-stan.jpg"
+    },
+    {
+      "userName": "amartins",
+      "userImage": "http://media.guestofaguest.com/t_article_content/wp-content/uploads/2012/08/cbb52540ebbd11e1939222000a1e8b24_71.jpg"
+    },
+    {
+      "userName": "bazevedo",
+      "userImage": "https://pbs.twimg.com/media/DSxzluaV4AAODRX.jpg"
+    },
+    {
+      "userName": "cpedrosa",
+      "userImage": "https://i.pinimg.com/736x/88/72/3f/88723fb4d9d5ca7357fa140eeb6af465--stockholm.jpg"
+    }
+  ]
+}
