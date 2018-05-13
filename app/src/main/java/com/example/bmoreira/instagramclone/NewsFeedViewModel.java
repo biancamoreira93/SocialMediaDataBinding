@@ -16,26 +16,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.Observable;
-import io.reactivex.ObservableEmitter;
-import io.reactivex.ObservableOnSubscribe;
 
 import static android.graphics.BitmapFactory.decodeStream;
 
 public class NewsFeedViewModel {
 
     public Observable<List<NewsFeedItem>> getNewsFeedItemList(final Context context) {
-        return Observable.create(new ObservableOnSubscribe<List<NewsFeedItem>>() {
-            @Override
-            public void subscribe(ObservableEmitter<List<NewsFeedItem>> emitter) throws Exception {
+        return Observable.create(emitter -> {
 
-                try {
-                    List<NewsFeedItem> newsFeedItemList = getNewsFeedItems(context);
-                    emitter.onNext(newsFeedItemList);
-                } catch (Exception e) {
-                    emitter.onError(e);
-                }
-
+            try {
+                List<NewsFeedItem> newsFeedItemList = getNewsFeedItems(context);
+                emitter.onNext(newsFeedItemList);
+            } catch (Exception e) {
+                emitter.onError(e);
             }
+
         });
     }
 

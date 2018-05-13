@@ -1,8 +1,10 @@
 package com.example.bmoreira.instagramclone;
 
+import android.databinding.BindingAdapter;
 import android.graphics.Bitmap;
+import android.widget.ImageView;
 
-class NewsFeedItem {
+public class NewsFeedItem {
     private String userName;
     private Bitmap userImage;
 
@@ -11,11 +13,16 @@ class NewsFeedItem {
         this.userImage = userImage;
     }
 
-    public Bitmap getImage() {
+    public String getText() {
+        return userName;
+    }
+
+    public Bitmap getUserImage() {
         return userImage;
     }
 
-    public String getText() {
-        return userName;
+    @BindingAdapter({"android:userImage"})
+    public static void setUserImage(ImageView imageView, Bitmap userImage) {
+        imageView.setImageBitmap(userImage);
     }
 }
