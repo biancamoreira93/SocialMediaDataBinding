@@ -52,14 +52,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/mainToolBar"
-        app:layout_constraintBottom_toTopOf="@+id/fragmentNewsFeed"/>
+        app:layout_constraintBottom_toTopOf="@+id/newsFeedList"/>
 
-    <fragment
-        android:id="@+id/fragmentNewsFeed"
-        class="com.example.bmoreira.instagramclone.NewsFeedFragment"
+    <ProgressBar
+        android:id="@+id/progressDialogNewsFeed"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mainToolBar" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/newsFeedList"
+        android:scrollbars="vertical"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="7dp"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -4,7 +4,9 @@ import android.databinding.BindingAdapter;
 import android.graphics.Bitmap;
 import android.widget.ImageView;
 
-public class NewsFeedItem {
+import java.io.Serializable;
+
+public class NewsFeedItem implements Serializable {
     private String userName;
     private Bitmap userImage;
 

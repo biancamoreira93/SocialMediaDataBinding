@@ -2,6 +2,7 @@ package com.example.bmoreira.instagramclone;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 
 import org.json.JSONArray;
@@ -15,27 +16,19 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.reactivex.Observable;
-
 import static android.graphics.BitmapFactory.decodeStream;
 
-public class NewsFeedViewModel {
+public class NewsFeedController {
 
-    public Observable<List<NewsFeedItem>> getNewsFeedItemList(final Context context) {
-        return Observable.create(emitter -> {
+    Context context;
+    Handler handler;
 
-            try {
-                List<NewsFeedItem> newsFeedItemList = getNewsFeedItems(context);
-                emitter.onNext(newsFeedItemList);
-            } catch (Exception e) {
-                emitter.onError(e);
-            }
-
-        });
+    public NewsFeedController(Handler handler, Context context) {
+        this.handler = handler;
+        this.context = context;
     }
 
-    @NonNull
-    private List<NewsFeedItem> getNewsFeedItems(Context context) throws Exception {
+    public List<NewsFeedItem> getNewsFeedItems() throws Exception {
         JSONArray jsonArray = getJsonArray(context);
         List<NewsFeedItem> newsFeedItemList = new ArrayList<>();
 
@@ -76,5 +69,10 @@ public class NewsFeedViewModel {
             data = inputStreamReader.read();
         }
         return result.toString();
+    }
+
+    public void loadNewsFeed() {
+        NewsFeedDecoderRunnable runnable = new NewsFeedDecoderRunnable(this, handler);
+        runnable.start();
     }
 }
